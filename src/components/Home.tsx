@@ -3,6 +3,8 @@ import React, { useEffect } from 'react'
 import { Hooks, Reducers } from "@khairul/api"
 import Table from "./Table"
 import { getStarlink } from '../services/starlink'
+// @ts-ignore
+import { Button } from "@khairul/nav";
 
 export default function Home(props) {
     const hooks = Hooks.useHooks()
@@ -38,6 +40,7 @@ export default function Home(props) {
 
     return (
         <>
+            <Button.default module='Home' />
             {
                 localStore && localStore.data && localStore.data.length &&
                 localStore.data.sort((a: any, b: any) => { return new Date(a.spaceTrack.LAUNCH_DATE).getTime() - new Date(b.spaceTrack.LAUNCH_DATE).getTime() })
